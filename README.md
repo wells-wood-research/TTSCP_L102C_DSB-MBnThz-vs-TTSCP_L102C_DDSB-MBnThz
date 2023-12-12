@@ -70,6 +70,8 @@ Now, we have all of our atoms in a numeric order (check one more time to make su
 Now, it is time for us to define this newly created non-proteinogenic MBN residue. To do this, we will need to create a .lib file for it. Also, we would like to create force field parameters for this residue. We are running the following bash scripts in our commands:
 
     ./generate_force.sh
+    ./generate_tleap.sh
+    ./run_tleap.sh
 
 This creates both the forcefield parameters for our new MBN residue, as well as it creates a lib file for it. In this lib file, we are checking if our partial charges are assigned correctly to each individual atom. We also need to make sure we have the identical coordinates in it as our pdb file. We can extract the coordinates directly from the .pdb file __TTSCP_L102C_DDSB_hydrogenadded_conjugated_renum.pdb.__
 
