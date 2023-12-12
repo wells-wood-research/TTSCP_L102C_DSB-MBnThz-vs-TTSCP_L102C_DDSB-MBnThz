@@ -3,7 +3,7 @@ __Prepared by:__
 __Suleyman Mert Unal: s.m.unal@sms.ed.ac.uk__
 __Evangelia Notari: e.notari@sms.ed.ac.uk__
 
-This documentation represents the individual steps taken for the molecular dynamics (MD) simulation part of the paper titled : __Installation of an organocatalyst into a protein scaffold creates an artificial Stetterase__
+This documentation takes the reader through the individual steps taken for the molecular dynamics (MD) simulation part of the paper titled : __Installation of an organocatalyst into a protein scaffold creates an artificial Stetterase__
 
 In the MD analysis, our goal was to infer whether the presence/absence of a disulphide-bond (DSB) between 13th and 60th residues of TTSCP would yield different structural behaviour for the protein. Experimental studies showed that in the absence of DSB, the enzyme's catalytic performance dropped. It is often an observed phenomenon that removal of DSBs can cause conformational changes in the proteins, and we wanted to investigate whether such changes occur in our system and whether they can explain the lower catalytic performance of the DSB mutant. We performed this analysis under the presence of the MBnThz cofactor ligated to C102, which is the catalytic unit of the enzyme.
 
