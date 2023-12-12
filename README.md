@@ -7,7 +7,7 @@ This documentation takes the reader through the individual steps taken for the m
 
 Readers should have AmberTools and PyMOL installed in their computers to repeat the procedures below. We also recommend that the users create a separate conda environment to download AmberTools and follow these steps in that dedicated environment. Firstly, Anaconda can be installed from __https://www.anaconda.com/products/individual__. Then, a new conda environment can be created via using the terminal:
 
-    conda create --name amberTools
+    conda create --name ambertools
 
 Then, this environment should be activated via:
 
