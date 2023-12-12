@@ -108,7 +108,7 @@ Our simulation preparation files are finally done! We can now generate both the 
 
 We are checking the __tleap_preminimization.out__ file manually using a pdb file. If you go to the end of the file, you should see 4 warnings in total and no errors. The warnings that appear in this way are likely fine. 
 
-__Note: The tleap_preminimization.in file for the TTSCP_L102C_DSB will differ from TTSCP_L102C_DDSB due to the presence of a disulphide bond. We should explicitly make this bond in tleap for TTSCP_L102C_DSB, and not have it in TTSCP_L102C_DDSB tleap, if you inspect the provided .in file, you will see an extra line for it in the TTSCP_L102C_DSB.__
+__Note: The tleap_postminimization.in file for the TTSCP_L102C_DSB will differ from TTSCP_L102C_DDSB due to the presence of a disulphide bond. We should explicitly make this bond in tleap for TTSCP_L102C_DSB, and not have it in TTSCP_L102C_DDSB tleap, if you inspect the provided .in file, you will see an extra line for it in the TTSCP_L102C_DSB.__
 
 __Note: You may need to remove CONECT records from the protein PDB file particularly if they are formed for the TTSCP_L102C_DSB due to the disulphide bond between C13 and C60 manually. Otherwise, tleap might throw an error.__
 
