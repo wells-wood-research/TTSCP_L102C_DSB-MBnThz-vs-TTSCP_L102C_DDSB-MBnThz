@@ -75,7 +75,7 @@ Now, it is time for us to define this newly created non-proteinogenic MBN residu
 
 This creates both the forcefield parameters for our new MBN residue, as well as it creates a lib file for it. In this lib file, we are checking if our partial charges are assigned correctly to each individual atom. We also need to make sure we have the identical coordinates in it as our pdb file. We can extract the coordinates directly from the .pdb file __TTSCP_L102C_DDSB_hydrogenadded_conjugated_renum.pdb.__
 
-    awk '/^ATOM/ && substr($0, 18, 3) == "MBN" { print substr($0, 31, 8), substr($0, 39, 8), substr($0, 47, 8) }' TTSCP_L102C_DDSB_hydrogenadded_conjugated_renum.pdb > coordinates.pdb__
+    awk '/^ATOM/ && substr($0, 18, 3) == "MBN" { print substr($0, 31, 8), substr($0, 39, 8), substr($0, 47, 8) }' TTSCP_L102C_DDSB_hydrogenadded_conjugated_renum.pdb > coordinates_preenergyminimization.pdb
 
 The coordinates.pdb file should then contain the coordinates of the MBN residue. We are copy-pasting this to the coordinates section of the .lib file. 
 
