@@ -21,7 +21,7 @@ After AF2 job is finished, the files are ready to be downloaded. Results are usu
  
 AF2 names the files based on the ranking, which is based on AF2's confidence in its prediction per-residue basis. We are choosing the structure file (with pdb extension) that has a label __rank_001__ in it for further processing. This file contains hydrogens added after the AF2 prediction, but we would like to add the hydrogens and determine the protonation states of residues via a dedicated software for a better accuracy. For this reason, we open our structure in a molecular visualization tool (such as PyMOL), and run the following command
 
-__remove hydro__
+    __remove hydro__
 
 This command removes the hydrogen atoms from the structure. We then save this molecule via File-Export Molecule, and name it as TTSCP_L102C_DDSB_nohydrogen.pdb. Then, we go to PDB2PQR website for the protonation of our molecule at a desired pH.  
 __https://server.poissonboltzmann.org/pdb2pqr__. Here, we can choose __“Upload a PDB file”__ option to load our file for protonation. We are changing the pH from 7.0 to 8.0 under the pKa options (This is the pH at which the catalysis reaction was carried out in the paper). We leave the __“Use PROPKA to assign protonation states at provided pH”__ option as ticked. __“For the Forcefield Options”__, we are choosing AMBER and for the __“Please choose an output naming scheme to use”__ we are choosing AMBER also. Then, we click __“Start Job”__. Within a couple of minutes, we see that we our job has been completed, and a __Use results with APBS”__ option appears on the right hand side of the screen. We click it, and click __“Start Job”__ again from the page that is opened. Again, within a couple of minutes, an option called __“View in 3Dmol”__ appears on the right side of the page. We click this, and a new page with our molecule is visible. We would like to download this molecule to our system, therefore we choose __“Export as: PyMol”__ on the menu on the right side, and click Export. This downloads a .zip file with a folder, and several files within that folder. We open the file with the .pqr extension in PyMOL, and save it using  File-Export Molecule, where we name the file as __TTSCP_L102C_DDSB_hydrogenadded.pdb__. __Importantly, we should manually delete the “HG” atom of the cysteine on the 102th position. This is because this hydrogen should not be there when the MbnThz cofactor is covalently attached to the cysteine.__ 
@@ -37,14 +37,14 @@ In the Jupyter notebook, the cofactor molecule is built from the modified SMILES
 
 A desired number of conformers (which can be modified with the n_confs variable) is then embedded into the cofactor molecule, and the conformers are aligned and energy minimised. The cofactor molecule is then passed to psiresp, along with the following options
 
-    ​ __Constraints__: The acetyl and methylamide groups are constrained to have a charge sum of 0. This will ensure that the cofactor molecule will retain an integer charge once the capping groups are removed. The overall charge sum of the molecule is set to +1.
+    ​ Constraints: The acetyl and methylamide groups are constrained to have a charge sum of 0. This will ensure that the cofactor molecule will retain an integer charge once the capping groups are removed. The overall charge sum of the molecule is set to +1.
     ​ 
-    ​ __Geometry Optimisation__: The geometry optimisation is set to True, and the level of theory is set to __HF/6-31G*__ (in order to make the parameterised cofactor compatible with the Amber protein force field parameters).
+    ​ Geometry Optimisation: The geometry optimisation is set to True, and the level of theory is set to __HF/6-31G*__ (in order to make the parameterised cofactor compatible with the Amber protein force field parameters).
     ​ 
-    ​ __Electrostatic Potential__: The level of theory is set to __HF/6-31G*__ (for the same reason as above).
+    ​ Electrostatic Potential: The level of theory is set to __HF/6-31G*__ (for the same reason as above).
 The QM calculations (first geometry optimisation, followed by single point calculations) are run in the background with psi4. Once finished, the partial charges are output as a numpy array, with the array indices corresponding to the atom indices in the molecule visualisation. 
 
-__antechamber -fi pdb -fo mol2 -i MBNThz_CYS.pdb -o MBNThz_CYS.mol2 -pf y -c bcc -nc 1__
+    antechamber -fi pdb -fo mol2 -i MBNThz_CYS.pdb -o MBNThz_CYS.mol2 -pf y -c bcc -nc 1
 
 This operation created a file with atom types and partial charges determined by AM1-BCC method. We are manually changing the charges in this mol2 file (by opening the file as a text editor) based on the output of the RESP calculation operation. 
 
@@ -59,7 +59,7 @@ Later, we are opening this mol2 file in PyMOL and then doing __“File – Expor
 
 We can then perform the alignment. To do this, we are opening both  __MBNThz_CYS_frommol2.pdb__ and __TTSCP_L102C_DDSB_hydrogenadded.pdb__ simultaneously in PyMOL, using __“File – Open”__. After opening these two files, we are individually selecting the atoms to be aligned __(C, CA, CB, SG, O, N)__ in both the ligand and the protein itself by first switching __“Selecting – Residues“__ to __“Selecting – Atoms”__ and then selecting individual atoms. As we click the atoms individually, PyMOL will automatically open a new selection as can be seen on the right side of the screen as (sele). We are renaming the ligand selections as lig, and protein selections as prot. Renaming can be achieved by clicking the “A” button near (sele), and then clicking rename selection and entering the desired names on the screen appearing. Then, in the command line of PyMOL we are running:
 
-__align lig, prot__
+    __align lig, prot__
 
 After this command, our ligand is sticking out of the protein. Since the initial docking results showed that the cofactor should be in the protein’s core, we are manually changing the cofactor’s position. To do this, we are going to the __“3-button editing mode”__ in PyMOL, and bringing the cofactor back into the protein core. Ideally, we are placing the cofactor such that there are not many major clashes with the cartoon representation of the protein, and also with not many atoms. Since we do not want to change anything from the protein structure itself, we are removing the C, CA, CB, SG, O, N from the ligand structure. It might be tricky to do it in the sticks representation, so we are first changing the lig into a line representation by clicking __“S-lines”__. We can then remove the atoms (also hydrogen atoms associated with them) by selecting all the atoms and __“right click – remove”__. We are saving this structure as __“TTSCP_L102C_DDSB_hydrogenadded_conjugated.pdb”__. Since we know  now that the cysteine at position 102 and our cofactor are ligated to each other, we can think of them as one big unnatural residue. Therefore, the CYS 102 entries when we open this pdb file in a text editor can be replaced with MBN 102! Similarly, the atoms related to MBN could be renamed MBN 102 if they are not so. We are also copy-pasting all the atoms from the actual MBN (without cysteine), beneath the cysteine atom entries, as this will be useful during renumbering, We are saving this file as __“TTSCP_L102C_DDSB_hydrogenadded_conjugated_prerenumber.pdb”__. Also, if the MBN atoms are logged in as __HETATM__ in this file, we are changing them to __ATOM__, and we make sure that we keep all the coordinate columns aligned with each other and rest of the file. Then, using pdb4amber, we run the following command in our terminal:
 
@@ -69,21 +69,21 @@ Now, we have all of our atoms in a numeric order (check one more time to make su
 
 Now, it is time for us to define this newly created non-proteinogenic MBN residue. To do this, we will need to create a .lib file for it. Also, we would like to create force field parameters for this residue. We are running the following bash scripts in our commands:
 
-__./generate_force.sh__
+    ./generate_force.sh__
 
 This creates both the forcefield parameters for our new MBN residue, as well as it creates a lib file for it. In this lib file, we are checking if our partial charges are assigned correctly to each individual atom. We also need to make sure we have the identical coordinates in it as our pdb file. We can extract the coordinates directly from the .pdb file __TTSCP_L102C_DDSB_hydrogenadded_conjugated_renum.pdb.__
 
-__awk '/^ATOM/ && substr($0, 18, 3) == "MBN" { print substr($0, 31, 8), substr($0, 39, 8), substr($0, 47, 8) }' TTSCP_L102C_DDSB_hydrogenadded_conjugated_renum.pdb > coordinates.pdb__
+    awk '/^ATOM/ && substr($0, 18, 3) == "MBN" { print substr($0, 31, 8), substr($0, 39, 8), substr($0, 47, 8) }' TTSCP_L102C_DDSB_hydrogenadded_conjugated_renum.pdb > coordinates.pdb__
 
 The coordinates.pdb file should then contain the coordinates of the MBN residue. We are copy-pasting this to the coordinates section of the .lib file. 
 
 In the frcmod file we created, there is one parameter that is likely missing. We make sure that we are manually entering the following line into the ANGLE section in the frcmod file we created. This entry comes from creating the force field files for the MBNThz molecule that comes out from the RESP calculation with the capped groups on.
 
-__C -N-hn    48.300     117.55__
+    C -N-hn    48.300     117.55
 
 Our simulation preparation files are finally done! We can now generate both the topology and coordinate files that will be used by our simulations. For this, we are running the following command:
 
-__tleap -s -f tleap_preminimization.in > tleap_preminimization.out__
+    tleap -s -f tleap_preminimization.in > tleap_preminimization.out
 
 We are checking the __tleap_preminimization.out__ file manually using a pdb file. If you go to the end of the file, you should see 4 warnings in total and no errors. The warnings that appear in this way are likely fine. 
 
@@ -91,17 +91,17 @@ __Note: The tleap_preminimization.in file for the TTSCP_L102C_DSB will differ fr
 
 Now, we have the simulation files ready. We are first running the __run_energy_minimization.py__ script to get a reasonable structure to start our simulation with. This should help us avoid having visually weird bonds after the simulations (they sometimes happen if the atoms are too close, PyMOL automatically makes them look like they are bonds and then they are visually bad).
 
-__python3 run_energy_minimization.pdb__
+    python3 run_energy_minimization.pdb
 
 We do not have to wait for this simulation to finish, and it does not have to be a long simulation. What matters is that the structure is relaxed enough such that the atoms that may make weird bonds with the cofactor are now away from it. This script gives us a .dcd output, which can be used to visually inspect the simulation over time. To do this, we first open __TTSCP_L102C_DDSB_preenergyminimization.pdb__ in  PyMOL. Then, we also open the __TTSCP_L102C_DDSB_energyminimization.dcd__ file in it. We are removing the water and sodium atoms and saving this file as __TTSCP_L102C_DDSB_energyminimized.pdb.__ 
 
 We also need to make sure that the MBN.lib file is updated with the new coordinates. To do this, we extract the coordinates from the pdb file we created 
 
-__awk '/^ATOM/ && substr($0, 18, 3) == "MBN" { print substr($0, 31, 8), substr($0, 39, 8), substr($0, 47, 8) }' TTSCP_L102C_DDSB_energyminimized.pdb > coordinates.pdb__ 
+    awk '/^ATOM/ && substr($0, 18, 3) == "MBN" { print substr($0, 31, 8), substr($0, 39, 8), substr($0, 47, 8) }' TTSCP_L102C_DDSB_energyminimized.pdb > coordinates.pdb 
 
 We then run the following command:
 
-__tleap -s -f tleap_postminimization.in > tleap_postminimization.out__
+    tleap -s -f tleap_postminimization.in > tleap_postminimization.out
 
 We are checking the tleap_preminimization.out file manually using a pdb file. If you go to the end of the file, you should see 4 warnings in total and no errors. The warnings that appear in this way are likely fine. 
 
