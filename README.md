@@ -5,6 +5,20 @@ __Evangelia Notari: e.notari@sms.ed.ac.uk__
 
 This documentation takes the reader through the individual steps taken for the molecular dynamics (MD) simulation part of the paper titled : __Installation of an organocatalyst into a protein scaffold creates an artificial Stetterase__
 
+__Readers should have AmberTools and PyMOL installed in their computers to repeat the procedures below. We also recommend that the users create a separate conda environment to download AmberTools and follow these steps in that dedicated environment. Firstly, Anaconda can be installed from __https://www.anaconda.com/products/individual__. Then, a new conda environment can be created via using the terminal:
+
+    conda create --name AmberTools
+
+Then, this environment should be activated via:
+
+    conda activate ambertools
+
+AmberTools can be downloaded after activating the conda environment by running
+
+    conda install AmberTools23
+
+Since the AmberTools23 package is installed within the ambertools environment, the readers should always remember to activate this environment to be able to run AmberTools23 commands in their terminal.
+
 Our goal with this MD simulation analysis was to infer whether the presence/absence of a disulphide-bond (DSB) between 13th and 60th residues of TTSCP would yield different structural behaviour for the protein. Experimental studies showed that in the absence of DSB, the enzyme's catalytic performance dropped. It is often an observed phenomenon that removal of DSBs can cause conformational changes in the proteins, and we wanted to investigate whether such changes occur in our system and whether they can explain the lower catalytic performance of the DSB mutant. We performed this analysis under the presence of the MBnThz cofactor ligated to C102, which is the catalytic unit of the enzyme.
 
 Firstly, we predicted the protein structures of TTSCP with both the DSB (C13, C60, and C102) and no DSB (A13, A60, C102) using AlphaFold2 (AF2). We will call these TTSCP_L102C and TTSCP_DDSB_L102C respectively from now. Protein structures can be predicted using ColabFold website (especially for small number of structures, one may find it easier to use a locally installed AF2 if the number of structures to process is large).  __https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb#scrollTo=KK7X9T44pWb7__. ColabFold combines Google Colab and AF2 together and enables users to use a free-cloud based GPU providing system for protein structure prediction. In the experimental part of the study, the following protein sequences were used.
