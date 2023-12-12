@@ -1,0 +1,23 @@
+source leaprc.protein.ff14SB
+source leaprc.gaff2
+source leaprc.water.tip3p
+
+
+loadAmberParams MBN.frcmod
+loadoff MBN.lib
+
+MBN1 = loadPDB TTSCP_L102C_DDSB_hydrogenadded_conjugated_renum.pdb
+
+bond MBN1.101.C MBN1.102.N
+bond MBN1.102.C MBN1.103.N
+#delete bond (resid 102 and name C16) (resid 12 and name OH)
+solvatebox MBN1 TIP3PBOX 15.0
+
+
+addions MBN1 Na+ 0
+
+savepdb MBN1 TTSCP_L102C_DDSB_preenergyminimized.pdb
+
+saveAmberParm MBN1 TTSCP_L102C_DDSB_preenergyminimized.prmtop TTSCP_L102C_DDSB_preenergyminimized.inpcrd
+
+quit
