@@ -91,6 +91,8 @@ We are checking the __tleap_preminimization.out__ file manually using a pdb file
 
 __Note: The tleap_preminimization.in file for the TTSCP_L102C_DSB will differ from TTSCP_L102C_DDSB due to the presence of a disulphide bond. We should explicitly make this bond in tleap, if you inspect the provided .in file, you will see an extra line for it.__
 
+__Note: You may need to remove CONECT records from the protein PDB file particularly if they are formed for the TTSCP_L102C_DSB due to the disulphide bond between C13 and C60 manually. Otherwise, tleap might throw an error.__
+
 Now, we have the simulation files ready. We are first running the __run_energy_minimization.py__ script to get a reasonable structure to start our simulation with. This should help us avoid having visually weird bonds after the simulations (they sometimes happen if the atoms are too close, PyMOL automatically makes them look like they are bonds and then they are visually bad).
 
     python3 run_energy_minimization.pdb
