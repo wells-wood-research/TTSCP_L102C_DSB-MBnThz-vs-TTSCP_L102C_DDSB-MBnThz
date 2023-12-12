@@ -109,6 +109,6 @@ We then run the following command:
 
 We are checking the tleap_preminimization.out file manually using a pdb file. If you go to the end of the file, you should see 4 warnings in total and no errors. The warnings that appear in this way are likely fine. 
 
-Note: The tleap_preminimization.in file for the TTSCP_L102C_DSB will differ from TTSCP_L102C_DDSB due to the presence of a disulphide bond. We should explicitly make this bond in tleap, if you inspect the provided .in file, you will see an extra line for it.
+__Note: The tleap_preminimization.in file for the TTSCP_L102C_DSB will differ from TTSCP_L102C_DDSB due to the presence of a disulphide bond. We should explicitly make this bond in tleap, if you inspect the provided .in file, you will see an extra line for it.__
 
 Now, we have the simulation files ready. We are running TTSCP_L102C_DSB_1.py up to 5, and TTSCP_L102C_DDSB_1.py up to 5 to run the simulations in parallel.
