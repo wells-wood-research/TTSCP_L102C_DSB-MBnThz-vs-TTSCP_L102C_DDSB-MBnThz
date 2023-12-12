@@ -37,11 +37,11 @@ In the Jupyter notebook, the cofactor molecule is built from the modified SMILES
 
 A desired number of conformers (which can be modified with the n_confs variable) is then embedded into the cofactor molecule, and the conformers are aligned and energy minimised. The cofactor molecule is then passed to psiresp, along with the following options
 
-    ​ Constraints: The acetyl and methylamide groups are constrained to have a charge sum of 0. This will ensure that the cofactor molecule will retain an integer charge once the capping groups are removed. The overall charge sum of the molecule is set to +1.
+__Constraints__: The acetyl and methylamide groups are constrained to have a charge sum of 0. This will ensure that the cofactor molecule will retain an integer charge once the capping groups are removed. The overall charge sum of the molecule is set to +1.
     ​ 
-    ​ Geometry Optimisation: The geometry optimisation is set to True, and the level of theory is set to __HF/6-31G*__ (in order to make the parameterised cofactor compatible with the Amber protein force field parameters).
+__Geometry Optimisation__: The geometry optimisation is set to True, and the level of theory is set to __HF/6-31G*__ (in order to make the parameterised cofactor compatible with the Amber protein force field parameters).
     ​ 
-    ​ Electrostatic Potential: The level of theory is set to __HF/6-31G*__ (for the same reason as above).
+__Electrostatic Potential__: The level of theory is set to __HF/6-31G*__ (for the same reason as above).
 The QM calculations (first geometry optimisation, followed by single point calculations) are run in the background with psi4. Once finished, the partial charges are output as a numpy array, with the array indices corresponding to the atom indices in the molecule visualisation. 
 
     antechamber -fi pdb -fo mol2 -i MBNThz_CYS.pdb -o MBNThz_CYS.mol2 -pf y -c bcc -nc 1
