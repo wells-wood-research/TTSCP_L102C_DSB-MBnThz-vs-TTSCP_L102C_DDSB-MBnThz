@@ -1,0 +1,119 @@
+-I: Adding /home/wchris/anaconda3/envs/AmberTools23/dat/leap/prep to search path.
+-I: Adding /home/wchris/anaconda3/envs/AmberTools23/dat/leap/lib to search path.
+-I: Adding /home/wchris/anaconda3/envs/AmberTools23/dat/leap/parm to search path.
+-I: Adding /home/wchris/anaconda3/envs/AmberTools23/dat/leap/cmd to search path.
+-s: Ignoring all leaprc startup files.
+-f: Source tleap_postminimization.in.
+
+Welcome to LEaP!
+Sourcing: ./tleap_postminimization.in
+----- Source: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/cmd/leaprc.protein.ff14SB
+----- Source of /home/wchris/anaconda3/envs/AmberTools23/dat/leap/cmd/leaprc.protein.ff14SB done
+Log file: ./leap.log
+Loading parameters: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/parm/parm10.dat
+Reading title:
+PARM99 + frcmod.ff99SB + frcmod.parmbsc0 + OL3 for RNA
+Loading parameters: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/parm/frcmod.ff14SB
+Reading force field modification type file (frcmod)
+Reading title:
+ff14SB protein backbone and sidechain parameters
+Loading library: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/lib/amino12.lib
+Loading library: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/lib/aminoct12.lib
+Loading library: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/lib/aminont12.lib
+----- Source: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/cmd/leaprc.gaff2
+----- Source of /home/wchris/anaconda3/envs/AmberTools23/dat/leap/cmd/leaprc.gaff2 done
+Log file: ./leap.log
+Loading parameters: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/parm/gaff2.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 2.2.20, March 2021)
+----- Source: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/cmd/leaprc.water.tip3p
+----- Source of /home/wchris/anaconda3/envs/AmberTools23/dat/leap/cmd/leaprc.water.tip3p done
+Loading library: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/lib/atomic_ions.lib
+Loading library: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/lib/solvents.lib
+Loading parameters: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/parm/frcmod.tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+This is the additional/replacement parameter set for TIP3P water
+Loading parameters: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/parm/frcmod.ions1lm_126_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of monovalent ions for TIP3P water model (12-6 normal usage set)
+Loading parameters: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/parm/frcmod.ionsjc_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Monovalent ion parameters for Ewald and TIP3P water from Joung & Cheatham JPCB (2008)
+Loading parameters: /home/wchris/anaconda3/envs/AmberTools23/dat/leap/parm/frcmod.ions234lm_126_tip3p
+Reading force field modification type file (frcmod)
+Reading title:
+Li/Merz ion parameters of divalent to tetravalent ions for TIP3P water model (12-6 normal usage set)
+Loading parameters: ./MBN.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+Remark line goes here
+Loading library: ./MBN_energyminimized.lib
+Loading PDB file: ./TTSCP_L102C_DSB_energyminimized.pdb
+
+/home/wchris/anaconda3/envs/AmberTools23/bin/teLeap: Warning!
+One sided connection. Residue (MBN) missing connect0 atom.
+
+/home/wchris/anaconda3/envs/AmberTools23/bin/teLeap: Warning!
+One sided connection. Residue (default_name) missing connect1 atom.
+  total atoms in file: 2124
+  Solute vdw bounding box:              46.143 37.561 43.557
+  Total bounding box for atom centers:  76.143 67.561 73.557
+  Solvent unit box:                     18.774 18.774 18.774
+  Total vdw box size:                   79.094 70.863 76.820 angstroms.
+  Volume: 430559.402 A^3 
+  Total mass 210851.240 amu,  Density 0.813 g/cc
+  Added 10862 residues.
+4 Na+ ions required to neutralize.
+Adding 4 counter ions to "mol" using 1A grid
+Grid extends from solute vdw + 1.37  to  7.37
+Resolution:      1.00 Angstrom.
+Solvent present: replacing closest with ion
+	 when steric overlaps occur
+Calculating grid charges
+(Replacing solvent molecule)
+Placed Na+ in mol at (12.52, 17.49, -0.48).
+(Replacing solvent molecule)
+Placed Na+ in mol at (-7.62, 19.87, 13.14).
+(Replacing solvent molecule)
+Placed Na+ in mol at (5.84, -4.64, -17.54).
+(Replacing solvent molecule)
+Placed Na+ in mol at (11.89, 5.75, -14.39).
+
+Done adding ions.
+Writing pdb file: TTSCP_L102C_DSB_energyminimized_solvated.pdb
+   printing CRYST1 record to PDB file with box info
+
+/home/wchris/anaconda3/envs/AmberTools23/bin/teLeap: Warning!
+ Converting N-terminal residue name to PDB format: NMET -> MET
+
+/home/wchris/anaconda3/envs/AmberTools23/bin/teLeap: Warning!
+ Converting C-terminal residue name to PDB format: CGLN -> GLN
+Checking Unit.
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 432 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	CGLN	1
+	MBN	1
+	NMET	1
+	WAT	10858
+  )
+ (no restraints)
+	Quit
+
+Exiting LEaP: Errors = 0; Warnings = 4; Notes = 0.
