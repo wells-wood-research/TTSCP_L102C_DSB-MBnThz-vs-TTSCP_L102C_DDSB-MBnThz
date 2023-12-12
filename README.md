@@ -6,13 +6,13 @@ In the MD analysis, our goal was to infer whether the presence/absence of a disu
 
 Firstly, we predicted the protein structures of TTSCP with both the DSB (C13, C60, and C102) and no DSB (A13, A60, C102) using AlphaFold2 (AF2). We will call these TTSCP_L102C and TTSCP_ΔDSB_L102C respectively from now. Protein structures can be predicted using ColabFold website (especially for small number of structures, one may find it easier to use a locally installed AF2 if the number of structures to process is large).  https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb#scrollTo=KK7X9T44pWb7. ColabFold combines Google Colab and AF2 together and enables users to use a free-cloud based GPU providing system for protein structure prediction. In the experimental part of the study, the following protein sequences were used.
 
-TTSCP_L102C
+__TTSCP_L102C__
 
-MELFTEAWAQAYCRKLNESEAYRKAASTWEGSLALAVRPDPKAGFPKGVAVVLDLWHGACRGAKAVEGEAEADFVIEADLATWQEVLEGRLEPLSALMRGLCELKKGTIAALAPYAQAAQELVKVAREVAENLYFQ
+__MELFTEAWAQAYCRKLNESEAYRKAASTWEGSLALAVRPDPKAGFPKGVAVVLDLWHGACRGAKAVEGEAEADFVIEADLATWQEVLEGRLEPLSALMRGLCELKKGTIAALAPYAQAAQELVKVAREVAENLYFQ__
 
-TTSCP_ΔDSB_L102C
+__TTSCP_ΔDSB_L102C__
 
-MELFTEAWAQAYARKLNESEAYRKAASTWEGSLALAVRPDPKAGFPKGVAVVLDLWHGAARGAKAVEGEAEADFVIEADLATWQEVLEGRLEPLSALMRGLCELKKGTIAALAPYAQAAQELVKVAREVAENLYFQ
+__MELFTEAWAQAYARKLNESEAYRKAASTWEGSLALAVRPDPKAGFPKGVAVVLDLWHGAARGAKAVEGEAEADFVIEADLATWQEVLEGRLEPLSALMRGLCELKKGTIAALAPYAQAAQELVKVAREVAENLYFQ__
 
 We can therefore put these sequences to the "query_sequence" section of ColabFold. We are defining our jobname as TTSCP_L102C and TTSCP_L102C_DDSB for their respective sequences. We would also like to perform AMBER relaxation on the predictions to achieve a more accurate geometry. For this, we are changing the “num_relax” variable to 5 to perform the relaxation on all of the predictions. We are not changing any other variable.
 
