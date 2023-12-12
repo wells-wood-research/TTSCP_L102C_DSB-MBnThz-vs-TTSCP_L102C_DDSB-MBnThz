@@ -1,4 +1,5 @@
-__Prepared by: Suleyman Mert Unal: s.m.unal@sms.ed.ac.uk (resp_charges_generation.ipynb associated manuscript: Evangelia Notari: e.notari@sms.ed.ac.uk__)
+__Prepared by: Suleyman Mert Unal: s.m.unal@sms.ed.ac.uk__ 
+__resp_charges_generation.ipynb associated manuscript: Evangelia Notari: e.notari@sms.ed.ac.uk__
 
 This documentation takes the reader through the individual steps taken for the molecular dynamics (MD) simulation part of the paper titled : __Installation of an organocatalyst into a protein scaffold creates an artificial Stetterase__
 
