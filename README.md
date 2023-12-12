@@ -96,7 +96,7 @@ __Note: You may need to remove CONECT records from the protein PDB file particul
 
 Now, we have the simulation files ready. We are first running the __run_energy_minimization.py__ script to get a reasonable structure to start our simulation with. This should help us avoid having visually weird bonds after the simulations (they sometimes happen if the atoms are too close, PyMOL automatically makes them look like they are bonds and then they are visually bad).
 
-    python3 run_energy_minimization.pdb
+    python3 run_energy_minimization.py
 
 We do not have to wait for this simulation to finish, and it does not have to be a long simulation. What matters is that the structure is relaxed enough such that the atoms that may make weird bonds with the cofactor are now away from it. This script gives us a .dcd output, which can be used to visually inspect the simulation over time. To do this, we first open __TTSCP_L102C_DSB_preenergyminimization.pdb__ in  PyMOL. Then, we also open the __TTSCP_L102C_DSB_energyminimization.dcd__ file in it. We are removing the water and sodium atoms and saving this file as __TTSCP_L102C_DSB_energyminimized.pdb.__ 
 
