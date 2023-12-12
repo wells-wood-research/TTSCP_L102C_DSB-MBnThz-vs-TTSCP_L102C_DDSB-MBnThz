@@ -38,7 +38,7 @@ For this purpose, we are first creating a .mol2 file that is generated from the 
 
 The cofactor molecule is first modified with an acetyl group at the N-terminus and a methylamide group at the C-terminus, in order to mimic the protein environment (presence of upstream and downstream amino acid  residues). The resulting SMILES string is: __“O=C(NC)[C@@H](NC(C)=O)CSC1C(N(CCC2=C(C)[N+](CC3=CC=CC=C3)=CS2)C(C1)=O)=O”__. This SMILES can then be used as input in the __resp_charges_generation.ipynb__ Jupyter notebook.
 
-In the Jupyter notebook, the cofactor molecule is built from the modified SMILES string using rdkit, which also adds hydrogen atoms. Based on the visualisation of the molecule, the atom indices are split into capping indices and backbone and side chain indices. This is essential as the capping acetyl and methylamide groups will need to be removed at the end in order to insert the residual cofactor into the protein.
+In the Jupyter notebook named __resp_charges_generation.ipynb__, the cofactor molecule is built from the modified SMILES string using rdkit, which also adds hydrogen atoms. Based on the visualisation of the molecule, the atom indices are split into capping indices and backbone and side chain indices. This is essential as the capping acetyl and methylamide groups will need to be removed at the end in order to insert the residual cofactor into the protein.
 
 A desired number of conformers (which can be modified with the n_confs variable) is then embedded into the cofactor molecule, and the conformers are aligned and energy minimised. The cofactor molecule is then passed to psiresp, along with the following options
 
