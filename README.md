@@ -1,5 +1,3 @@
-__TTSCP_L102C_DSB-MBnThz-vs-TTSCP_L102C_DDSB-MBnThz__
-
 Prepared by: 
 
 __Suleyman Mert Unal: s.m.unal@sms.ed.ac.uk__
