@@ -1,0 +1,26 @@
+source leaprc.protein.ff14SB
+source leaprc.gaff2
+source leaprc.water.tip3p
+
+
+loadAmberParams MBN.frcmod
+loadoff MBN_energyminimized.lib
+
+mol = loadPDB TTSCP_L102C_DSB_energyminimized.pdb
+
+
+bond mol.101.C mol.102.N
+bond mol.102.C mol.103.N
+bond mol.13.SG mol.60.SG
+
+
+solvatebox mol TIP3PBOX 15.0
+
+
+addions mol Na+ 0
+
+savepdb mol TTSCP_L102C_DSB_energyminimized_solvated.pdb
+
+saveAmberParm mol TTSCP_L102C_DSB_energyminimized.prmtop TTSCP_L102C_DSB_energyminimized.inpcrd
+
+quit
