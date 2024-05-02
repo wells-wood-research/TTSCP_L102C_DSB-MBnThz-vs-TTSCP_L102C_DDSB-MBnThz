@@ -86,7 +86,7 @@ Now, we have all of our atoms in a numeric order (check one more time to make su
 
 Now, it is time for us to define this newly created non-proteinogenic MBN residue. To do this, we will need to create a .lib file for it. Also, we would like to create force field parameters for this residue. We are running the following bash scripts in our commands:
 
-    ./generate_force.sh
+    ./generateforcefield.sh
     ./generate_tleap.sh
     ./run_tleap.sh
 
