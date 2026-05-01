@@ -130,4 +130,4 @@ __Note: The tleap_preminimization.in file for the TTSCP_L102C_DSB will differ fr
 
 Now, we have the simulation files ready. We are running TTSCP_L102C_DSB_1.py up to 5, and TTSCP_L102C_DDSB_1.py up to 5 to run the simulations in parallel.
 
-The analysis scripts and plots from in the Methods in Enzymology article are included in the `analysis_scripts_and_plots` folder.
+The analysis scripts and plots from the Methods in Enzymology article are included in the `analysis_scripts_and_plots` folder.
