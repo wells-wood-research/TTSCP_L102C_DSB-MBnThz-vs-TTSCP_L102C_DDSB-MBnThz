@@ -2,7 +2,7 @@ __Prepared by: Suleyman Mert Unal: s.m.unal@sms.ed.ac.uk__
 
 __resp_charges_generation.ipynb associated manuscript: Evangelia Notari: e.notari@sms.ed.ac.uk__
 
-This documentation takes the reader through the individual steps taken for the molecular dynamics (MD) simulation part of the paper titled : [__Installation of an organocatalyst into a protein scaffold creates an artificial Stetterase__](https://doi.org/10.1039/D4CC05182C)
+This documentation takes the reader through the individual steps taken for the molecular dynamics (MD) simulation part of the paper titled: [__Installation of an organocatalyst into a protein scaffold creates an artificial Stetterase__](https://doi.org/10.1039/D4CC05182C)
 
 Readers should have AmberTools and PyMOL installed in their computers to repeat the procedures below. We also recommend that the users create a separate conda environment to download AmberTools and follow these steps in that dedicated environment. Firstly, Anaconda can be installed from __https://www.anaconda.com/products/individual__. Then, a new conda environment can be created via using the terminal:
 
